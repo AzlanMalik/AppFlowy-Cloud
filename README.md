@@ -32,6 +32,36 @@ and real-time WebSocket communication for an efficient and collaborative user ex
 ## 🚀 Deployment
 
 - See [deployment guide](./doc/DEPLOYMENT.md)
+- For SSL/HTTPS setup with automatic certificate management, see [SSL Setup Guide](./SSL_SETUP.md)
+
+## 🔒 SSL/TLS Configuration
+
+AppFlowy Cloud supports automatic SSL certificate generation and renewal using Let's Encrypt. This provides:
+
+- ✅ **Automatic certificate generation** for your domain
+- ✅ **Automatic renewal** every 12 hours (certificates renewed when <30 days remaining)
+- ✅ **HTTP to HTTPS redirect** for security
+- ✅ **Modern SSL configuration** with strong security settings
+
+### Quick SSL Setup
+
+1. Configure your domain in `.env`:
+   ```bash
+   APPFLOWY_DOMAIN=yourdomain.com
+   LETSENCRYPT_EMAIL=your-email@example.com
+   ```
+
+2. Run the SSL initialization script:
+   ```bash
+   ./scripts/init-letsencrypt.sh
+   ```
+
+3. Start the services:
+   ```bash
+   docker compose up -d
+   ```
+
+For detailed SSL setup instructions, see [SSL_SETUP.md](./SSL_SETUP.md).
 
 ## 💻 Development
 
